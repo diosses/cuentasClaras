@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar class="transparent-toolbar">
+    <ion-title class="ion-text-center">Lista de Gastos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="padding-top: 56px;">
+    <table matSort (matSortChange)="sortData($event)">
+      <tr>
+        <th mat-sort-header="category">Cat.</th>
+        <th mat-sort-header="amount">Monto</th>
+        <th mat-sort-header="date">Fecha</th>
+        <th mat-sort-header="description">Desc.</th>
+        <th mat-sort-header="edit">Editar</th>
+      </tr>
+
+      <tr *ngFor="let expense of expenses.data">
+        <td>{{ expense.category }}</td>
+        <td>{{ expense.amount | currency: 'CLP':'symbol':'1.0-0' }}</td>
+        <td>{{ expense.date | date: 'DD/MM/YYYY' }}</td>
+        <td>{{ expense.description }}</td>
+        <td>
+          <button mat-icon-button (click)="editExpense(expense)">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</ion-content>
+
+<style>
+  .transparent-toolbar {
+    background: transparent;
+    box-shadow: none;
+  }
+
+  table {
+    width: 100%;
+  }
+</style>

@@ -1,0 +1,22 @@
+<ion-app>
+  <ion-router-outlet id="main-content"></ion-router-outlet>
+    <ion-menu *ngIf="showSidenav" contentId="main-content">
+      <ion-content class="ion-padding">
+        <ion-menu-toggle>
+          <ion-list>
+            <ion-item routerLink="/expense-form" routerDirection="forward">Añadir Gasto</ion-item>
+            <ion-item routerLink="/expense-list" routerDirection="forward">Lista de Gastos</ion-item>
+          </ion-list>
+        </ion-menu-toggle>
+      </ion-content>
+    </ion-menu>
+    <div Id="main-content" *ngIf="showSidenav">
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+    </div>
+</ion-app>
