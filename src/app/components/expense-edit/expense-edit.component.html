@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar class="transparent-toolbar">
+    <ion-title class="ion-text-center">Editar Gasto</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="expenseForm" (ngSubmit)="submitForm()">
+    <ion-item>
+      <ion-input label="Monto" formControlName="amount" type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-select label="Categoría" formControlName="category" placeholder="Selecciona una categoría">
+        <ion-select-option value="cuentas">Servicios Básicos</ion-select-option>
+        <ion-select-option value="mercaderia">Mercadería</ion-select-option>
+        <ion-select-option value="transporte">Transporte</ion-select-option>
+        <ion-select-option value="entretenimiento">Entretenimiento</ion-select-option>
+        <ion-select-option value="alcohol">Alcohol</ion-select-option>
+        <ion-select-option value="golosinas">Golosinas</ion-select-option>
+        <ion-select-option value="restaurant">Restaurantes, Bares y Delivery</ion-select-option>
+        <ion-select-option value="otros">Otros</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Fecha" formControlName="date" type="date"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Descripción" formControlName="description" type="text"></ion-input>
+    </ion-item>
+
+    <!-- Add a hidden input field to store the expense ID -->
+    <input formControlName="id" type="hidden">
+
+    <ion-button type="submit" expand="full" [disabled]="!expenseForm.valid">Guardar Cambios</ion-button>
+    <ion-button (click)="deleteExpense()" color="danger" expand="full">Eliminar Gasto</ion-button>
+  </form>
+</ion-content>

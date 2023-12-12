@@ -18,10 +18,13 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { ExpenseFormComponent } from './components/expense-form/expense-form.component';
 import { ExpenseListComponent } from './components/expense-list/expense-list.component';
+import { ExpenseEditComponent } from './components/expense-edit/expense-edit.component';
 import { ExpenseService } from './services/expense.service';
 
+import { SQLite } from '@awesome-cordova-plugins/sqlite/ngx';
+
 @NgModule({
-  declarations: [AppComponent, ExpenseFormComponent, ExpenseListComponent,],
+  declarations: [AppComponent, ExpenseFormComponent, ExpenseListComponent, ExpenseEditComponent],
   imports: [BrowserModule, 
     IonicModule.forRoot(), 
     FormsModule, 
@@ -33,7 +36,7 @@ import { ExpenseService } from './services/expense.service';
     MatInputModule,
     MatButtonModule,
     MatIconModule,],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, ExpenseService],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, ExpenseService, SQLite],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
